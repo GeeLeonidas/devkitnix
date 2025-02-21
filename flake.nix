@@ -10,24 +10,24 @@
     pkgs = import nixpkgs {system = "x86_64-linux";};
     imageA64 = pkgs.dockerTools.pullImage {
       imageName = "devkitpro/devkita64";
-      imageDigest = "sha256:70db4c954eea43be5f1bc64c8882154126c99f47927ecb1e6b27fa18004fc961";
-      sha256 = "a05LU5jF5KxQdqWJv+4b3EBRlVCZjBGx69WpFL57wP4=";
+      imageDigest = "sha256:0222822d6db12279b81264ddd6e13a85bdfde1b97690365cbdb4c350bdab6ea4";
+      sha256 = "zXhIkrKredjPapYS+6x8dwWkHUzfd2bshxYSZu0aGoY=";
       finalImageName = "devkitpro/devkita64";
-      finalImageTag = "20221113";
+      finalImageTag = "20241023";
     };
     imageARM = pkgs.dockerTools.pullImage {
       imageName = "devkitpro/devkitarm";
-      imageDigest = "sha256:695d1eb865ca4b908b1f5c4de777b9eef0f927680f0c0654b07721f1df908606";
-      sha256 = "U2Xkt4IYUeU00w/FzlvySzG5lFL2R7kN8sjxL0EEKD4=";
+      imageDigest = "sha256:44f969ec4f6d63f3818c8926877b805d9f313a42870f8741a14268fc86220325";
+      sha256 = "5TrVKzxGFxocFpWrkgT68Cj0Vg6rF798uPHVpDkhv9Y=";
       finalImageName = "devkitpro/devkitarm";
-      finalImageTag = "20221115";
+      finalImageTag = "20250102";
     };
     imagePPC = pkgs.dockerTools.pullImage {
       imageName = "devkitpro/devkitppc";
-      imageDigest = "sha256:d88e21c1a7b5f8070ba7a15aa892e395f118ded9803b0f8223a3d29ba279fff3";
-      sha256 = "nVtz/9mbYveKbvTMj/39EzND7qiLkjBHfqSOgT6SBUY=";
+      imageDigest = "sha256:cccaae711c73a7d87b441a1f31ea86ff8be7037e96cb3546bf4647ae08599662";
+      sha256 = "sIocIgG84VdTYEHzgltQpALB7xmPCsdmncY683bzibw=";
       finalImageName = "devkitpro/devkitppc";
-      finalImageTag = "20220821";
+      finalImageTag = "20250102";
     };
     extractDocker = image:
       pkgs.vmTools.runInLinuxVM (
