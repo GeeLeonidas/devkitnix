@@ -74,58 +74,19 @@
         ''
       );
   in {
-    packages.x86_64-linux.devkitA64 = pkgs.stdenv.mkDerivation {
+    packages.x86_64-linux.devkitA64 = pkgs.callPackage ./package.nix {
       name = "devkitA64";
       src = extractDocker imageA64;
-      nativeBuildInputs = [
-        pkgs.autoPatchelfHook
-      ];
-      buildInputs = [
-        pkgs.stdenv.cc.cc
-        pkgs.ncurses6
-        pkgs.zsnes
-      ];
-      buildPhase = "true";
-      installPhase = ''
-        mkdir -p $out
-        cp -r $src/{devkitA64,libnx,portlibs,tools} $out
-        rm -rf $out/pacman
-      '';
     };
 
-    packages.x86_64-linux.devkitARM = pkgs.stdenv.mkDerivation {
+    packages.x86_64-linux.devkitARM = pkgs.callPackage ./package.nix {
       name = "devkitARM";
       src = extractDocker imageARM;
-      nativeBuildInputs = [pkgs.autoPatchelfHook];
-      buildInputs = [
-        pkgs.stdenv.cc.cc
-        pkgs.ncurses6
-        pkgs.zsnes
-      ];
-      buildPhase = "true";
-      installPhase = ''
-        mkdir -p $out
-        cp -r $src/{devkitARM,libgba,libnds,libctru,libmirko,liborcus,portlibs,tools} $out
-        rm -rf $out/pacman
-      '';
     };
 
-    packages.x86_64-linux.devkitPPC = pkgs.stdenv.mkDerivation {
+    packages.x86_64-linux.devkitPPC = pkgs.callPackage ./package.nix {
       name = "devkitPPC";
       src = extractDocker imagePPC;
-      nativeBuildInputs = [pkgs.autoPatchelfHook];
-      buildInputs = [
-        pkgs.stdenv.cc.cc
-        pkgs.ncurses6
-        pkgs.expat
-        pkgs.xz
-      ];
-      buildPhase = "true";
-      installPhase = ''
-        mkdir -p $out
-        cp -r $src/{devkitPPC,libogc,portlibs,tools,wut} $out
-        rm -rf $out/pacman
-      '';
     };
   };
 }
